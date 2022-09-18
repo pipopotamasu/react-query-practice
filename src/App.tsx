@@ -1,7 +1,14 @@
+import { useEffect } from 'react';
 import reactLogo from '@/assets/react-logo.svg';
 import viteLogo from '@/assets/vite-logo.svg';
 
 function App() {
+  useEffect(() => {
+    fetch('/todos')
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, []);
+
   return (
     <div className="h-full py-16 bg-gray-700 text-neutral-100">
       <header className="flex flex-col items-center">
